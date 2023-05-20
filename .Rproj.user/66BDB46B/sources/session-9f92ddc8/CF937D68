@@ -3,7 +3,7 @@
     "path": "~/Documents/Jason/euroleagueR/DESCRIPTION",
     "project_path": "DESCRIPTION",
     "type": "dcf",
-    "hash": "3136028872",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1684474145142.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "17,15",
+        "cursorPosition": "19,0",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1684474427,
+    "lastKnownWriteTime": 1684579999,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1684474427305,
+    "last_content_update": 1684579999,
     "read_only": false,
     "read_only_alternatives": []
 }
