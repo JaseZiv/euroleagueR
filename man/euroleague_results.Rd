@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_data.R
 \name{euroleague_results}
 \alias{euroleague_results}
-\title{Get match results for all Euroleague matches}
+\title{Get Euroleague match results}
 \usage{
 euroleague_results()
 }
@@ -10,7 +10,7 @@ euroleague_results()
 returns a data frame of match results
 }
 \description{
-Returns a data frame of all results of all Eoroleague matches
+Returns a data frame of all results of all Euoroleague matches
 played since the 2000-2001 season
 }
 \examples{
