@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# EuroleagueR
+# euroleagueR <img src="man/figures/logo.png" align="right" width="181" height="201"/>
 
 <!-- badges: start -->
 
