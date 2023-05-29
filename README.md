@@ -29,8 +29,9 @@ library(euroleagueR)
 
 ### How To
 
-To get a better understanding of how to use the library, see the package
-\[vignette\] which will be created shortly.
+To get a better understanding of how to use the library, see the how to
+guide for using the functions in the library
+[here](https://jaseziv.github.io/euroleagueR/articles/using-euroleagueR.html)
 
 ------------------------------------------------------------------------
 

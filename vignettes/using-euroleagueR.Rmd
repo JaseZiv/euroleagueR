@@ -1,0 +1,119 @@
+---
+title: "Getting Euroleague Basketball stats using euroleagueR"
+author: "Jason Zivkovic"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Euroleague Basketball stats using euroleagueR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  message=FALSE,
+  warning=FALSE
+)
+```
+
+
+## Overview
+
+This vignette will outline how to use the functions in the `euroleagueR` package to allow users to obtain clean and tidy data for matches played in the Euroleague basketball competition.
+
+
+## Installation
+
+Currently, this library is not yet on CRAN, so you can install the dev version of [**```euroleagueR```**](https://github.com/JaseZiv/euroleagueR/) from [GitHub](https://github.com/JaseZiv/euroleagueR) with:
+
+```{r gh-installation, eval=FALSE}
+# install.packages("remotes")
+remotes::install_github("JaseZiv/euroleagueR")
+```
+
+
+
+```{r libraries}
+library(euroleagueR)
+library(dplyr)
+```
+
+
+## Usage
+
+
+The following code will show you how to get various different statistics for the Euroleague.
+
+
+### Match Results
+
+To get results of matches players in the Euroleague tournament since the 2001-2001 season, use the `euroleague_results()` function. 
+
+This data set will also be important to load in together with any of the following data sets to provide match-level metadata (date, venue, scores, phase type, etc)
+
+```{r match_results_wide}
+results <- euroleague_results()
+dplyr::glimpse(results)
+```
+
+
+#### Joining keys
+
+To be able to join match-level metadata, `season_code` and `code` are the two columns needed for joining on to any of the below listed data sets.
+
+
+### Team Box Scores
+
+To get box scores at the *team* level, use the `euroleague_team_box()` function. This can return team box score data since the 2010-2011 season, in long form, meaning there will be two rows for each game - one row per team. 
+
+Note, not all fields will contain data for earlier seasons.
+
+```{r team_box}
+# the below will get all available match's team box score data
+team_box <- euroleague_team_box(season = c(2010:2022))
+glimpse(team_box)
+```
+
+
+Now say we want to be able to join on extra information - say the scores, home and away teams, venue, group name, etc, the below code can be used:
+
+```{r rich_team_box}
+rich_team_box <- results |> 
+  select(code, season_code, group_name, phase_type_name, date, code_home, code_away, score_home, score_away, venue_name, coach_name_home, coach_name_away) |> 
+  inner_join(team_box, by = c("season_code", "code"), multiple = "all")
+```
+
+
+
+### Player Box Scores
+
+To get box scores at the *player* level, use the `euroleague_player_box()` function. This can return player box score data since the 2010-2011 season. Note, not all fields will contain data for earlier seasons.
+
+```{r player_box}
+player_box <- euroleague_player_box(season = c(2020:2022))
+glimpse(player_box)
+```
+
+
+### Play-by-Play data
+
+To get play-by-play data, use the `euroleague_pbp()` function. This can return play-by-play data since the 2010-2011 season. Note, not all fields will contain data for earlier seasons.
+
+```{r pbp}
+pbp <- euroleague_pbp(season = c(2021:2022))
+glimpse(pbp)
+```
+
+
+
+### Shots data
+
+To get shot location and type data, use the `euroleague_shots()` function. This can return shooting data since the 2010-2011 season. Note, not all fields will contain data for earlier seasons.
+
+```{r shots}
+shots <- euroleague_shots(season = 2022)
+glimpse(shots)
+```
+

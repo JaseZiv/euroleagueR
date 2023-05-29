@@ -1,6 +1,10 @@
 pandoc: 2.19.2
-pkgdown: 1.6.1
+pkgdown: 2.0.7
 pkgdown_sha: ~
-articles: {}
-last_built: 2023-05-27T10:34Z
+articles:
+  using-euroleagueR: using-euroleagueR.html
+last_built: 2023-05-29T04:01Z
+urls:
+  reference: https://jaseziv.github.io/euroleagueR/reference
+  article: https://jaseziv.github.io/euroleagueR/articles
 
